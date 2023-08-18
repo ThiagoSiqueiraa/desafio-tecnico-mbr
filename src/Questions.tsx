@@ -1,15 +1,11 @@
 import React from "react";
-function Questions(){
+import Wrapper from "./ui/Wrapper";
+function Questions() {
 
-    return(
-        <div className="wrapper">
-        {/* aqui talvez possa ser um form */}
-        <div className="content-login">
-          <div className='wrapper-input'>
-          </div>
-
-        </div>
-      </div>
+    return (
+        <Wrapper width='972px' height='505px' padding='4.3%'>
+            aaabb
+        </Wrapper>
     )
 }
 
