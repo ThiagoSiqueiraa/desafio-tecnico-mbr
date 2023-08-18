@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useNavigate } from 'react-router';
 
 function App() {
 
   const [name, setName] = useState("")
   console.log(name)
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `perguntas`; 
+    navigate(path);
+  }
 
   return (
     <div className="App">
@@ -15,7 +21,7 @@ function App() {
           <h1>Nome</h1>
           <div className='wrapper-input'>
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <button><span>acessar</span></button>
+            <button onClick={routeChange}><span>acessar</span></button>
           </div>
 
         </div>
