@@ -7,6 +7,11 @@
     width: 100%;
     margin-bottom: 3%;
     height: calc(25% - 3%);
+    cursor: pointer;
+}
+
+.pill-container:hover{
+    background-color: #c6c6c6;
 }
 
 .pill-container.question {
