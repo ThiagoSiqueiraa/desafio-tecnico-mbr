@@ -3,6 +3,8 @@ import './App.css';
 import { useNavigate } from 'react-router';
 import Wrapper from './ui/Wrapper';
 import UserContext from './context/UserContext/UserContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -10,15 +12,34 @@ function App() {
   const user = useContext(UserContext)
 
   let navigate = useNavigate();
-  const routeChange = () => {
+
+  const notifyRequiredName = () => toast.warn("Entre com o seu nome para continuar", {
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    draggable: true,
+    theme: 'dark'
+  });
+
+  const checkName = () => {
+    if (name === "") {
+      notifyRequiredName()
+      return false
+    }
     user.setName(name)
-    let path = `perguntas`;
-    navigate(path);
+    return true
+  }
+  
+
+
+  const routeChange = () => {
+    if(checkName()) navigate('perguntas');
   }
 
   return (
     <Wrapper width={'600px'} height={'400px'} >
       {/* aqui talvez possa ser um form */}
+      <ToastContainer />
       <div className="content-login">
         <h1>Nome</h1>
         <div className='wrapper-input'>

@@ -97,31 +97,32 @@ function Questions() {
                     </div>
                 </div>
             </header>
-            <Wrapper width='972px' height='505px' padding='4.3%'>
                 {
                     isLoading && <p>Carregando...</p>
                 }
                 {
-                    !isFinished ? (<ul>
+                    !isFinished ? (
+                        <Wrapper width='972px' height='505px' padding='4.3%'>
+
+                    <ul>
                         <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
                         {data && data[currentQuestion].respostas.map((item: any) => {
                             return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
                         })}
-                    </ul>) :
+                    </ul></Wrapper>) :
 
-                        (<div>
+                        (<Wrapper height='505px' padding='2.3%'><div>
                             <h1>Pontuação</h1>
-                            <Pill><p>Respostas corretas: {score.correctAnswers}</p></Pill>
-                            <Pill><p>Respostas erradas: {score.wrongAnswers}</p></Pill>
-                            <Pill><p>Porcentagem de acerto: {
+                            <Pill style={{justifyContent: 'space-evenly'}}><span>Respostas corretas:</span> <span>{score.correctAnswers}</span></Pill>
+                            <Pill style={{justifyContent: 'space-evenly'}}><span>Respostas erradas:</span><span>{score.wrongAnswers}</span></Pill>
+                            <Pill style={{justifyContent: 'space-evenly'}}><span>Porcentagem de acerto:</span> <span>{
                                 (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
-                            }%</p></Pill>
+                            }%</span></Pill>
                             <button onClick={onTryAgain}>Tentar novamente</button>
-                        </div>)
+                        </div></Wrapper>)
                 }
 
 
-            </Wrapper>
         </React.Fragment>
     )
 }

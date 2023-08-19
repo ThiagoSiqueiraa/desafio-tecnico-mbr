@@ -8,6 +8,7 @@
     margin-bottom: 3%;
     height: calc(25% - 3%);
     cursor: pointer;
+    padding: 2%;
 }
 
 .pill-container:hover{
@@ -23,7 +24,7 @@
 .pill-container span {
     color: #737373;
     font-family: Inter;
-    font-size: 30px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal
