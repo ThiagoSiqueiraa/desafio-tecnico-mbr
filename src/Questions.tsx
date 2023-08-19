@@ -76,9 +76,9 @@ function Questions() {
             }
             {
                 !isFinished ? (<ul>
-                    <Pill isQuestion text={data && data[currentQuestion].pergunta} />
+                    <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
                     {data && data[currentQuestion].respostas.map((item: any) => {
-                        return <Pill onClick={() => onAnswerClick(item)} key={item} text={item} />
+                        return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
                     })}
                 </ul>) :
 

@@ -1,12 +1,12 @@
 import React from "react";
 import "./Pill.css";
 
-function Pill({text, isQuestion}: {text: string, isQuestion?: boolean}) {
+function Pill({text, isQuestion, onClick, children}: {text?: string, isQuestion?: boolean, onClick?: any, children?: React.ReactNode}) {
 
     return (
-        <div  className={`pill-container ${isQuestion ? 'question' : ''}`}>
-            <span>{text}</span>
-        </div>
+        <li onClick={onClick} className={`pill-container ${isQuestion ? 'question' : ''}`}>
+            {children}
+        </li>
     )
 }
 
