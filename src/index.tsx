@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import ErrorPage from './error-page';
-import Questions from './Questions';
+import Quiz from './Quiz';
 import Root from './routes/root';
 
 
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/perguntas",
-        element: <Questions />
+        element: <Quiz />
 
       }
     ]

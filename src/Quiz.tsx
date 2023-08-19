@@ -6,9 +6,9 @@ import useHttp from "./hooks/use-http";
 import Pill from "./ui/Pill";
 import Wrapper from "./ui/Wrapper";
 import { shuffle } from "./utils/shuffle";
-function Questions() {
+function Quiz() {
 
-    const user  = useContext(UserContext)
+    const user = useContext(UserContext)
 
     const { isLoading, error, sendRequest } = useHttp()
     const [data, setData] = useState<any>(null)
@@ -87,37 +87,35 @@ function Questions() {
 
     return (
         <React.Fragment>
+            {isLoading && <p>Carregando...</p>}
             {user.name === '' && <Navigate to='/' />}
-            {/* topbar */}
-                <Header/>
-                {
-                    isLoading && <p>Carregando...</p>
-                }
-                {
-                    !isFinished ? (
-                        <Wrapper width='60%' padding='3.3%'>
+            <Header />
 
-                    <ul>
-                        <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
-                        {data && data[currentQuestion].respostas.map((item: any) => {
-                            return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
-                        })}
-                    </ul></Wrapper>) :
+            {
+                !isFinished ? (
+                    <Wrapper width='60%' padding='3.3%'>
 
-                        (<Wrapper width="30%"  padding='1.1%'><div className='result'>
-                            <h1>Pontuação</h1>
-                            <Pill style={{justifyContent: 'space-evenly'}}><span>Respostas corretas:</span> <span>{score.correctAnswers}</span></Pill>
-                            <Pill style={{justifyContent: 'space-evenly'}}><span>Respostas erradas:</span><span>{score.wrongAnswers}</span></Pill>
-                            <Pill style={{justifyContent: 'space-evenly'}}><span>Porcentagem de acerto:</span> <span>{
-                                (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
-                            }%</span></Pill>
-                            <button className="btn__tryagain" onClick={onTryAgain}>Tentar novamente</button>
-                        </div></Wrapper>)
-                }
+                        <ul>
+                            <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
+                            {data && data[currentQuestion].respostas.map((item: any) => {
+                                return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
+                            })}
+                        </ul></Wrapper>) :
+
+                    (<Wrapper width="30%" padding='1.1%'><div className='result'>
+                        <h1>Pontuação</h1>
+                        <Pill style={{ justifyContent: 'space-evenly' }}><span>Respostas corretas:</span> <span>{score.correctAnswers}</span></Pill>
+                        <Pill style={{ justifyContent: 'space-evenly' }}><span>Respostas erradas:</span><span>{score.wrongAnswers}</span></Pill>
+                        <Pill style={{ justifyContent: 'space-evenly' }}><span>Porcentagem de acerto:</span> <span>{
+                            (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
+                        }%</span></Pill>
+                        <button className="btn__tryagain" onClick={onTryAgain}>Tentar novamente</button>
+                    </div></Wrapper>)
+            }
 
 
         </React.Fragment>
     )
 }
 
-export default Questions;
+export default Quiz;
