@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
+import UserContext from "./context/UserContext/UserContext";
 import useHttp from "./hooks/use-http";
 import Pill from "./ui/Pill";
 import Wrapper from "./ui/Wrapper";
 import { shuffle } from "./utils/shuffle";
 function Questions() {
+
+    const user  = useContext(UserContext)
+
     const { isLoading, error, sendRequest } = useHttp()
     const [data, setData] = useState<any>(null)
     const [currentQuestion, setCurrentQuestion] = useState<number>(0)
@@ -81,13 +86,14 @@ function Questions() {
 
     return (
         <React.Fragment>
+            {user.name === '' && <Navigate to='/' />}
             {/* topbar */}
             <header className="header">
                 <div className="header__container">
                     <div className="header__avatar">
                     </div>
                     <div className="header__username">
-                        <h1>Thiago</h1>
+                        <h1>{user.name}</h1>
                     </div>
                 </div>
             </header>

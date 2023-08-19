@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './App.css';
 import { useNavigate } from 'react-router';
 import Wrapper from './ui/Wrapper';
+import UserContext from './context/UserContext/UserContext';
 
 function App() {
 
   const [name, setName] = useState("")
-  console.log(name)
+  const user = useContext(UserContext)
 
   let navigate = useNavigate();
   const routeChange = () => {
+    user.setName(name)
     let path = `perguntas`;
     navigate(path);
   }
