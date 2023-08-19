@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import UserContext from "./context/UserContext/UserContext";
+import Header from "./Header";
 import useHttp from "./hooks/use-http";
 import Pill from "./ui/Pill";
 import Wrapper from "./ui/Wrapper";
@@ -88,14 +89,7 @@ function Questions() {
         <React.Fragment>
             {user.name === '' && <Navigate to='/' />}
             {/* topbar */}
-            <header className="header">
-                    <div className="header__avatar">
-                    </div>
-                    <div className="header__username">
-                        <h1>{user.name}</h1>
-                    </div>
-
-            </header>
+                <Header/>
                 {
                     isLoading && <p>Carregando...</p>
                 }
