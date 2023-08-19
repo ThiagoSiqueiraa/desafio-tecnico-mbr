@@ -6,8 +6,8 @@ import useHttp from "../hooks/use-http";
 import Pill from "./ui/Pill";
 import Wrapper from "./ui/Wrapper";
 import { shuffle } from "../utils/shuffle";
-import Header from "./Header";
 import PageLoader from "./ui/PageLoader/PageLoader";
+import Header from "./ui/Header";
 function Quiz() {
 
     const user = useContext(UserContext)
