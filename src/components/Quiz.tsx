@@ -7,6 +7,7 @@ import Pill from "./ui/Pill";
 import Wrapper from "./ui/Wrapper";
 import { shuffle } from "../utils/shuffle";
 import Header from "./Header";
+import PageLoader from "./ui/PageLoader/PageLoader";
 function Quiz() {
 
     const user = useContext(UserContext)
@@ -88,7 +89,7 @@ function Quiz() {
 
     return (
         <React.Fragment>
-            {isLoading && <p>Carregando...</p>}
+            {isLoading && <PageLoader />}
             {user.name === '' && <Navigate to='/' />}
             <Header />
 
