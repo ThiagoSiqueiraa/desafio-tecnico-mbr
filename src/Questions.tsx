@@ -82,13 +82,15 @@ function Questions() {
     return (
         <React.Fragment>
             {/* topbar */}
-            <div className="header">
-                <div className="header__avatar">
+            <header className="header">
+                <div className="header__container">
+                    <div className="header__avatar">
+                    </div>
+                    <div className="header__username">
+                        <h1>Thiago</h1>
+                    </div>
                 </div>
-                <div className="header__username">
-                    <h1>Thiago</h1>
-                </div>
-            </div>
+            </header>
             <Wrapper width='972px' height='505px' padding='4.3%'>
                 {
                     isLoading && <p>Carregando...</p>
