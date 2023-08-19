@@ -30,6 +30,9 @@ function Quiz() {
             correctAnswers: 0,
             wrongAnswers: 0
         })
+        setData((prev: any) => {
+            return shuffle(prev)
+        })
     }
 
 

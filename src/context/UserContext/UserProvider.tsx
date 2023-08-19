@@ -2,7 +2,9 @@ import React from "react"
 import { useState } from "react"
 import UserContext from "./UserContext"
 
-const UserProvider = (props: any) => {
+const UserProvider = (props: {
+    children: React.ReactNode
+}) => {
     const [user, setUser] = useState('')
 
     return(
