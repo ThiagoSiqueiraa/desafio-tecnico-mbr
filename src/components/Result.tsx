@@ -1,6 +1,6 @@
 import React from 'react'
-import Pill from '../ui/Pill'
-import Wrapper from '../ui/Wrapper'
+import Pill from './ui/Pill'
+import Wrapper from './ui/Wrapper'
 
 function Result({ score, onTryAgain }: { score: { correctAnswers: number, wrongAnswers: number }, onTryAgain: () => void }) {
     const scorePercentage = (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100

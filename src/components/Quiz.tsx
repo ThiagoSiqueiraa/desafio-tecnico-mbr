@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import Result from "./components/Result";
-import UserContext from "./context/UserContext/UserContext";
-import Header from "./Header";
-import useHttp from "./hooks/use-http";
+import Result from "./Result";
+import UserContext from "../context/UserContext/UserContext";
+import useHttp from "../hooks/use-http";
 import Pill from "./ui/Pill";
 import Wrapper from "./ui/Wrapper";
-import { shuffle } from "./utils/shuffle";
+import { shuffle } from "../utils/shuffle";
+import Header from "./Header";
 function Quiz() {
 
     const user = useContext(UserContext)
 
-    const { isLoading, error, sendRequest } = useHttp()
+    const { isLoading, sendRequest } = useHttp()
     const [data, setData] = useState<any>(null)
     const [currentQuestion, setCurrentQuestion] = useState<number>(0)
     const [score, setScore] = useState<{ correctAnswers: number, wrongAnswers: number }>(
@@ -95,14 +95,14 @@ function Quiz() {
             {
                 !isFinished ? (
                     <Wrapper width='60%' padding='3.3%'>
-
                         <ul>
                             <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
                             {data && data[currentQuestion].respostas.map((item: any) => {
                                 return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
                             })}
-                        </ul></Wrapper>) :
-
+                        </ul>
+                    </Wrapper>)
+                    :
                     (<Result score={score} onTryAgain={onTryAgain} />)
             }
 

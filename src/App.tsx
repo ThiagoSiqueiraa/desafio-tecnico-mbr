@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './App.css';
 import { useNavigate } from 'react-router';
-import Wrapper from './ui/Wrapper';
+import Wrapper from './components/ui/Wrapper';
 import UserContext from './context/UserContext/UserContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
