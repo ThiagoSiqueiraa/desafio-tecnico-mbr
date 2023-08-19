@@ -15,6 +15,16 @@ function Questions() {
     )
     const [isFinished, setIsFinished] = useState<boolean>(false)
 
+    const onTryAgain = () => {
+        setIsFinished(false)
+        setCurrentQuestion(0)
+        setScore({
+            correctAnswers: 0,
+            wrongAnswers: 0
+        })
+    }
+
+
     const onAnswerClick = (answer: string) => {
         console.log(data[currentQuestion].resposta_correta)
         if (answer === data[currentQuestion].resposta_correta) {
@@ -70,30 +80,41 @@ function Questions() {
     }, [])
 
     return (
-        <Wrapper width='972px' height='505px' padding='4.3%'>
-            {
-                isLoading && <p>Carregando...</p>
-            }
-            {
-                !isFinished ? (<ul>
-                    <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
-                    {data && data[currentQuestion].respostas.map((item: any) => {
-                        return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
-                    })}
-                </ul>) :
+        <React.Fragment>
+            {/* topbar */}
+            <div className="header">
+                <div className="header__avatar">
+                </div>
+                <div className="header__username">
+                    <h1>Thiago</h1>
+                </div>
+            </div>
+            <Wrapper width='972px' height='505px' padding='4.3%'>
+                {
+                    isLoading && <p>Carregando...</p>
+                }
+                {
+                    !isFinished ? (<ul>
+                        <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
+                        {data && data[currentQuestion].respostas.map((item: any) => {
+                            return <Pill onClick={() => onAnswerClick(item)} key={item} text={item}><span>{item}</span></Pill>
+                        })}
+                    </ul>) :
 
-                    (<div>
-                        <h1>Pontuação</h1>
-                        <Pill><p>Respostas corretas: {score.correctAnswers}</p></Pill>
-                        <Pill><p>Respostas erradas: {score.wrongAnswers}</p></Pill>
-                        <Pill><p>Porcentagem de acerto: {
-                            (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
-                        }%</p></Pill>
-                    </div>)
-            }
+                        (<div>
+                            <h1>Pontuação</h1>
+                            <Pill><p>Respostas corretas: {score.correctAnswers}</p></Pill>
+                            <Pill><p>Respostas erradas: {score.wrongAnswers}</p></Pill>
+                            <Pill><p>Porcentagem de acerto: {
+                                (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
+                            }%</p></Pill>
+                            <button onClick={onTryAgain}>Tentar novamente</button>
+                        </div>)
+                }
 
 
-        </Wrapper>
+            </Wrapper>
+        </React.Fragment>
     )
 }
 
