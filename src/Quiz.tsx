@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import Result from "./components/Result";
 import UserContext from "./context/UserContext/UserContext";
 import Header from "./Header";
 import useHttp from "./hooks/use-http";
@@ -102,15 +103,7 @@ function Quiz() {
                             })}
                         </ul></Wrapper>) :
 
-                    (<Wrapper width="30%" padding='1.1%'><div className='result'>
-                        <h1>Pontuação</h1>
-                        <Pill style={{ justifyContent: 'space-evenly' }}><span>Respostas corretas:</span> <span>{score.correctAnswers}</span></Pill>
-                        <Pill style={{ justifyContent: 'space-evenly' }}><span>Respostas erradas:</span><span>{score.wrongAnswers}</span></Pill>
-                        <Pill style={{ justifyContent: 'space-evenly' }}><span>Porcentagem de acerto:</span> <span>{
-                            (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
-                        }%</span></Pill>
-                        <button className="btn__tryagain" onClick={onTryAgain}>Tentar novamente</button>
-                    </div></Wrapper>)
+                    (<Result score={score} onTryAgain={onTryAgain} />)
             }
 
 
