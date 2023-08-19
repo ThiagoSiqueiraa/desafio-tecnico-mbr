@@ -11,7 +11,7 @@
     padding: 2%;
 }
 
-.pill-container:hover{
+.pill-container:hover {
     background-color: #c6c6c6;
 }
 
@@ -28,4 +28,37 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal
+}
+
+.result .pill-container {
+    cursor: default;
+}
+
+.result .pill-container:hover {
+    background-color: #fff ;
+}
+
+
+@media(max-width: 1000px) {
+    .pill-container span {
+        font-size: 100%;
+    }
+}
+
+@media(max-width: 900px) {
+    .pill-container{
+        padding: 8%;
+    }
+}
+
+@media(max-width: 600px) {
+    .pill-container{
+        padding: 6%;
+    }
+}
+
+@media(max-width: 300px) {
+    .pill-container{
+        padding: 4%;
+    }
 }

@@ -21,22 +21,18 @@ body {
 
 
 .wrapper {
-  width: 600px;
-  height: 400px;
+
   background-color: #fff;
   border-radius: 25px;
   box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.25);
 
 }
 
-.wrapper h1 {
+/* .wrapper h1 {
   margin: 40px 427px 44px 58px;
-}
+} */
 
-.wrapper-input {
-  width: 81%;
-  margin: 0 10% 35px 10%;
-}
+
 
 .wrapper input {
   margin-bottom: 35px;
@@ -47,6 +43,11 @@ body {
   box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.25) inset;
   border: none;
 
+}
+
+ul{
+  margin: 0;
+  padding: 0;
 }
 
 .wrapper-input button {
@@ -112,29 +113,46 @@ body {
   }
 }
 
-.header{
+.header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 10%;
-    background: #737373;
-}
-
-.header__container{
+  height: 109px;
+  background: #737373;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.header__avatar{
+
+.header__avatar {
   margin-left: 4%;
   background-color: #fff;
-  width: 4%;
+  height: 82px;
+  width: 82px;
   border-radius: 100%;
 }
 
-.header__username{
+.header__username {
   margin-left: 3%;
+  color: white;
 }
 
+.result {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.content-login{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 3% 5% 7% 5%;
+  align-content: center;
+}
 
 #error-page {
   display: flex;
@@ -142,4 +160,23 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.btn__tryagain{
+  width: 100%;
+  background-color: #6b6b72;
+  color: white;
+  padding: 3%;
+}
+
+.btn__tryagain:hover{
+  cursor: pointer;
+}
+
+
+@media(max-width: 1000px){
+  .wrapper{
+    width: 40% !important;
+  }
+
 }

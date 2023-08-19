@@ -89,20 +89,19 @@ function Questions() {
             {user.name === '' && <Navigate to='/' />}
             {/* topbar */}
             <header className="header">
-                <div className="header__container">
                     <div className="header__avatar">
                     </div>
                     <div className="header__username">
                         <h1>{user.name}</h1>
                     </div>
-                </div>
+
             </header>
                 {
                     isLoading && <p>Carregando...</p>
                 }
                 {
                     !isFinished ? (
-                        <Wrapper width='972px' height='505px' padding='4.3%'>
+                        <Wrapper width='60%' padding='3.3%'>
 
                     <ul>
                         <Pill isQuestion>{data && <span>{data[currentQuestion].pergunta}</span>}</Pill>
@@ -111,14 +110,14 @@ function Questions() {
                         })}
                     </ul></Wrapper>) :
 
-                        (<Wrapper height='505px' padding='2.3%'><div>
+                        (<Wrapper width="30%"  padding='1.1%'><div className='result'>
                             <h1>Pontuação</h1>
                             <Pill style={{justifyContent: 'space-evenly'}}><span>Respostas corretas:</span> <span>{score.correctAnswers}</span></Pill>
                             <Pill style={{justifyContent: 'space-evenly'}}><span>Respostas erradas:</span><span>{score.wrongAnswers}</span></Pill>
                             <Pill style={{justifyContent: 'space-evenly'}}><span>Porcentagem de acerto:</span> <span>{
                                 (score.correctAnswers / (score.correctAnswers + score.wrongAnswers)) * 100
                             }%</span></Pill>
-                            <button onClick={onTryAgain}>Tentar novamente</button>
+                            <button className="btn__tryagain" onClick={onTryAgain}>Tentar novamente</button>
                         </div></Wrapper>)
                 }
 

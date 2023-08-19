@@ -37,10 +37,9 @@ function App() {
   }
 
   return (
-    <Wrapper width={'600px'} height={'400px'} >
-      {/* aqui talvez possa ser um form */}
+    <Wrapper width='25%' padding='1.2%'>
       <ToastContainer />
-      <div className="content-login">
+      <div className="content-login result">
         <h1>Nome</h1>
         <div className='wrapper-input'>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
