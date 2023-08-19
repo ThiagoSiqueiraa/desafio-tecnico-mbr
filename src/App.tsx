@@ -15,7 +15,7 @@ function App() {
   }
 
   return (
-    <Wrapper>
+    <Wrapper width={'600px'} height={'400px'} >
       {/* aqui talvez possa ser um form */}
       <div className="content-login">
         <h1>Nome</h1>

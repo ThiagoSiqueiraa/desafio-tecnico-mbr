@@ -1,10 +1,10 @@
 import React from "react";
 import "./Pill.css";
 
-function Pill({text, isQuestion}: {text: string, isQuestion: boolean}) {
+function Pill({text, isQuestion}: {text: string, isQuestion?: boolean}) {
 
     return (
-        <div className={`pill-container ${isQuestion ? 'question' : ''}`}>
+        <div  className={`pill-container ${isQuestion ? 'question' : ''}`}>
             <span>{text}</span>
         </div>
     )
